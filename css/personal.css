@@ -1,6 +1,20 @@
 :root {
     --minheight: 35em;
     --leftright: 70%;
+    --maincolor: #4885ed;
+    font-family: "Roboto";
+    font-weight: 300;
+}
+
+#toolbar {
+    position: fixed;
+    right: 0.2em;
+    top: 0.2em;
+    font-size: 1.5em;
+}
+
+#toolbar div:hover {
+    color: var(--maincolor);
 }
 
 body {
@@ -29,5 +43,44 @@ body {
 .two {
     margin-left: var(--leftright);
     min-height: var(--minheight);
-    background: #4885ed;
+    background: var(--maincolor);
+}
+
+.anagrafica {
+    padding: 1em;
+    width: calc(100%-2em);
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.anagrafica img {
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 0.2em;
+    border-radius: 50%;
+    width: 80%;
+    height: auto;
+}
+
+.anagrafica h4 {
+    margin: 0;
+    padding: 0;
+    font-weight: 300;
+    padding-top: 0.2em;
+    color: gainsboro;
+}
+
+.anagrafica h3 {
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+    padding-top: 0.2em;
+    color: whitesmoke;
+}
+
+.center {
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
