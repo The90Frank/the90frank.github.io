@@ -1,0 +1,33 @@
+:root {
+    --minheight: 35em;
+    --leftright: 70%;
+}
+
+body {
+    background-color: #D0D0D0;
+}
+
+#fakebody {
+    min-height: var(--minheight);
+    margin: 2em;
+    background-color: white;
+}
+
+.container {
+    width: 100%;
+    min-height: var(--minheight);
+    margin: 0px;
+    padding: 0px;
+}
+
+.one {
+    width: var(--leftright);
+    min-height: var(--minheight);
+    float: left;
+}
+
+.two {
+    margin-left: var(--leftright);
+    min-height: var(--minheight);
+    background: #4885ed;
+}
