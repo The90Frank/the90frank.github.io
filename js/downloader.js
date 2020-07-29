@@ -1,4 +1,10 @@
 function htmltopdf() {
-    var element = document.body;
-    html2pdf().from(element).save();
+    var pdf = new jsPDF('p', 'pt', 'letter');
+    var source = document.body;
+    pdf.fromHTML(
+        source,
+        function() {
+            pdf.save('Test.pdf');
+        }
+    );
 }
