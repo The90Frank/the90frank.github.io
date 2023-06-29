@@ -1,0 +1,33 @@
+{
+    "education": [{
+            "degree": "Laurea Magistrale",
+            "field": "Informatica",
+            "year": "2018"
+        },
+        {
+            "degree": "Laurea Triennale",
+            "field": "Ingegneria del Software",
+            "year": "2015"
+        }
+    ],
+    "workExperience": [{
+            "position": "Sviluppatore Software",
+            "company": "XYZ Software",
+            "startDate": "2018",
+            "endDate": "2022"
+        },
+        {
+            "position": "Stage",
+            "company": "ABC Tech",
+            "startDate": "2017",
+            "endDate": "2018"
+        }
+    ],
+    "skills": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Python",
+        "Java"
+    ]
+}
