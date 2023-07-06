@@ -22,7 +22,7 @@ function populateEducation(data) {
 
     data.education.forEach(edu => {
         const listItem = document.createElement('li');
-        listItem.textContent = `${edu.degree} in ${edu.field} - ${edu.year}`;
+        listItem.textContent = `${edu.degree} in ${edu.field} - ${edu.year} (${edu.grade})`;
         educationList.appendChild(listItem);
     });
 }
@@ -34,6 +34,36 @@ function populateWorkExperience(data) {
     data.workExperience.forEach(exp => {
         const listItem = document.createElement('li');
         listItem.textContent = `${exp.position} presso ${exp.company} (${exp.startDate} - ${exp.endDate})`;
+
+        // Aggiungi la lista di progetti e attività
+        const projectList = document.createElement('ul');
+        exp.projects.forEach(project => {
+            const projectItem = document.createElement('li');
+            projectItem.textContent = project.name;
+
+            // Aggiungi la lista di attività e tecnologie
+            const activityList = document.createElement('ul');
+            project.activities.forEach(activity => {
+                const activityItem = document.createElement('li');
+                activityItem.textContent = activity.name;
+
+                // Aggiungi la lista di tecnologie
+                const technologyList = document.createElement('ul');
+                activity.technologies.forEach(technology => {
+                    const technologyItem = document.createElement('li');
+                    technologyItem.textContent = technology;
+                    technologyList.appendChild(technologyItem);
+                });
+
+                activityItem.appendChild(technologyList);
+                activityList.appendChild(activityItem);
+            });
+
+            projectItem.appendChild(activityList);
+            projectList.appendChild(projectItem);
+        });
+
+        listItem.appendChild(projectList);
         workExperienceList.appendChild(listItem);
     });
 }
@@ -79,105 +109,39 @@ function initialize() {
 }
 
 function downloadAsPDF() {
+    window.jsPDF = window.jspdf.jsPDF;
+
     const doc = new jsPDF();
 
     // Ottieni l'elemento HTML che contiene il tuo curriculum
     const element = document.getElementById('curriculum');
 
-    // Converte l'elemento HTML in un'immagine base64 utilizzando il metodo toDataURL()
-    const imageData = element.toDataURL();
+    // Converte l'elemento HTML in una stringa utilizzando outerHTML
+    const html = element.outerHTML;
 
-    // Aggiungi l'immagine al PDF utilizzando il metodo addImage()
-    doc.addImage(imageData, 'JPEG', 10, 10, 190, 0);
-
-    // Salva il PDF utilizzando il metodo save()
-    doc.save('curriculum.pdf');
-}
-
-// Funzione per attivare/disattivare la traduzione
-function toggleTranslation() {
-    const translateButton = document.querySelector('.floating-translate-button');
-    const translateButtonLabel = translateButton.innerText;
-
-    if (translateButtonLabel === 'Traduci') {
-        translateButton.innerText = 'Annulla';
-        translateContent();
-    } else {
-        translateButton.innerText = 'Traduci';
-        restoreContent();
-    }
-}
-
-// Funzione per tradurre il contenuto
-function translateContent() {
-    // Effettua qui la traduzione del contenuto in inglese
-    // Puoi utilizzare una libreria come Google Translate o un servizio di traduzione automatica
-
-    // Esempio: traduzione dei titoli delle sezioni
-    const sectionHeadings = document.querySelectorAll('.section h2');
-    sectionHeadings.forEach((heading) => {
-        const italianText = heading.innerText;
-        // Traduci il testo in inglese e assegna il valore tradotto al titolo
-        const englishText = translateToEnglish(italianText);
-        heading.innerText = englishText;
-    });
-}
-
-// Funzione per ripristinare il contenuto originale
-function restoreContent() {
-    // Ripristina qui il contenuto originale in italiano
-    // Puoi reimpostare i valori del JSON o recuperarli da un'altra fonte
-
-    // Esempio: ripristino dei titoli delle sezioni in italiano
-    const sectionHeadings = document.querySelectorAll('.section h2');
-    sectionHeadings.forEach((heading) => {
-        const englishText = heading.innerText;
-        // Ripristina il testo in italiano e assegna il valore originale al titolo
-        const italianText = translateToItalian(englishText);
-        heading.innerText = italianText;
-    });
-}
-
-// Funzione per tradurre il testo in inglese utilizzando ChatGPT
-async function translateToEnglish(text) {
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer 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'
+    // Configura le opzioni di conversione
+    const options = {
+        format: 'letter', // Formato della pagina (es. 'letter', 'a4', 'a3')
+        margin: {
+            top: 10,
+            bottom: 10,
+            left: 10,
+            right: 10
         },
-        body: JSON.stringify({
-            messages: [
-                { role: 'system', content: 'You: ' + text },
-                { role: 'user', content: 'Translate this to English.' }
-            ],
-            max_tokens: 50
-        })
-    });
-
-    const { choices } = await response.json();
-    return choices[0].message.content.replace('Assistant:', '').trim();
-}
-
-// Funzione per tradurre il testo in italiano utilizzando ChatGPT
-async function translateToItalian(text) {
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer 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'
+        html2canvas: {
+            scale: 2, // Scala per migliorare la qualità delle immagini (opzionale)
+            useCORS: true // Abilita CORS per evitare problemi di sicurezza con l'immagine (opzionale)
         },
-        body: JSON.stringify({
-            messages: [
-                { role: 'system', content: 'You: ' + text },
-                { role: 'user', content: 'Traduci questo in italiano.' }
-            ],
-            max_tokens: 50
-        })
-    });
+        jsPDF: {
+            unit: 'mm' // Unità di misura per il documento PDF (es. 'pt', 'mm', 'cm', 'in')
+        }
+    };
 
-    const { choices } = await response.json();
-    return choices[0].message.content.replace('Assistant:', '').trim();
+    // Crea il documento PDF utilizzando il metodo fromHTML()
+    doc.fromHTML(html, options, () => {
+        // Salva il PDF utilizzando il metodo save()
+        doc.save('curriculum.pdf');
+    });
 }
 
 // Inizializzazione al caricamento della pagina HTML

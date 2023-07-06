@@ -1,85 +1,76 @@
-/* Stile generale */
+/* Reset dello stile predefinito del browser */
 
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f8f8f8;
-    color: #333;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Stile per il documento */
+
+html,
+body {
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    background-color: #333333;
+    /* Colore di sfondo grigio molto scuro per la pagina */
 }
 
 .container {
-    max-width: 800px;
+    max-width: 210mm;
+    /* Larghezza massima del contenitore */
     margin: 0 auto;
-    padding: 20px;
+    padding: 20mm;
+    background-color: white;
+    box-shadow: 0 0 5mm rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-    color: #333;
-    font-size: 28px;
-    margin-bottom: 20px;
-}
-
+h1,
 h2 {
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 10px;
+    margin-bottom: 10mm;
 }
 
-p {
-    margin-bottom: 10px;
+.section {
+    margin-bottom: 10mm;
 }
 
-a {
-    color: #0366d6;
+.profile-picture {
+    width: 40mm;
+    height: 40mm;
+    background-color: lightgray;
+    margin-right: 10mm;
+    float: left;
 }
 
-
-/* Sezione Anagrafica */
-
-#anagrafica {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+.description {
+    overflow: hidden;
 }
 
-#anagrafica h2 {
-    color: #333;
-    margin-top: 0;
+ul {
+    list-style-type: none;
 }
 
-#anagrafica img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-
-/* Altri stili per le sezioni... */
-
-
-/* Bottone flottante */
-
-.floating-button {
+.floating-download-button {
+    display: block;
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #0366d6;
-    color: #fff;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    bottom: 20mm;
+    right: 20mm;
+    width: 120px;
+    height: 40px;
+    background-color: #007bff;
+    color: white;
     text-align: center;
-    line-height: 50px;
-    font-size: 20px;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    line-height: 40px;
+    text-decoration: none;
+    border-radius: 4px;
 }
 
-.floating-button:hover {
-    background-color: #064785;
+@media print {
+    /* Nascondi il pulsante di download durante la stampa */
+    .floating-download-button {
+        display: none;
+    }
 }

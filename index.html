@@ -2,6 +2,7 @@
 <html lang="it">
 
 <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
@@ -11,61 +12,60 @@
 
 <body>
     <div class="container">
-        <h1>Curriculum</h1>
+        <div id="curriculum">
+            <h1>Curriculum</h1>
 
-        <!-- Sezione Anagrafica -->
-        <section class="section">
-            <h2>Anagrafica</h2>
-            <div class="personal-info">
-                <div class="profile-picture">
-                    <!-- Spazio per la foto -->
+            <!-- Sezione Anagrafica -->
+            <section class="section">
+                <h2>Anagrafica</h2>
+                <div class="personal-info">
+                    <div class="profile-picture">
+                        <!-- Spazio per la foto -->
+                    </div>
+                    <div class="description">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed faucibus elit vel eros cursus, eu fermentum elit pharetra. Suspendisse quis mauris massa. Integer ac dolor nec lorem posuere dignissim vitae id dui. Donec vitae est eu
+                            enim vulputate auctor a vitae mi. In et augue finibus, interdum mauris vitae, malesuada enim. Aliquam suscipit nisl at est hendrerit, eu gravida lectus feugiat. Mauris maximus faucibus tellus, eget consequat purus rutrum nec.
+                            Quisque sit amet elementum dui.</p>
+                    </div>
                 </div>
-                <div class="description">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed faucibus elit vel eros cursus, eu fermentum elit pharetra. Suspendisse quis mauris massa. Integer ac dolor nec lorem posuere dignissim vitae id dui. Donec vitae est eu enim
-                        vulputate auctor a vitae mi. In et augue finibus, interdum mauris vitae, malesuada enim. Aliquam suscipit nisl at est hendrerit, eu gravida lectus feugiat. Mauris maximus faucibus tellus, eget consequat purus rutrum nec. Quisque
-                        sit amet elementum dui.</p>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Sezione Educazione -->
-        <section class="section">
-            <h2>Educazione</h2>
-            <ul id="education-list">
-                <!-- Dati da popolare dinamicamente -->
-            </ul>
-        </section>
+            <!-- Sezione Educazione -->
+            <section class="section">
+                <h2>Educazione</h2>
+                <ul id="education-list">
+                    <!-- Dati da popolare dinamicamente -->
+                </ul>
+            </section>
 
-        <!-- Sezione Esperienza Lavorativa -->
-        <section class="section">
-            <h2>Esperienza Lavorativa</h2>
-            <ul id="work-experience-list">
-                <!-- Dati da popolare dinamicamente -->
-            </ul>
-        </section>
+            <!-- Sezione Esperienza Lavorativa -->
+            <section class="section">
+                <h2>Esperienza Lavorativa</h2>
+                <ul id="work-experience-list">
+                    <!-- Dati da popolare dinamicamente -->
+                </ul>
+            </section>
 
-        <!-- Sezione Competenze -->
-        <section class="section">
-            <h2>Competenze</h2>
-            <ul id="skills-list">
-                <!-- Dati da popolare dinamicamente -->
-            </ul>
-        </section>
+            <!-- Sezione Competenze -->
+            <section class="section">
+                <h2>Competenze</h2>
+                <ul id="skills-list">
+                    <!-- Dati da popolare dinamicamente -->
+                </ul>
+            </section>
 
-        <!-- Sezione Portafoglio -->
-        <section class="section">
-            <h2>Portafoglio</h2>
-            <ul id="portfolio-list">
-                <!-- Dati da popolare dinamicamente -->
-            </ul>
-        </section>
-
+            <!-- Sezione Portafoglio -->
+            <section class="section">
+                <h2>Portafoglio</h2>
+                <ul id="portfolio-list">
+                    <!-- Dati da popolare dinamicamente -->
+                </ul>
+            </section>
+        </div>
         <!-- Pulsante per il download PDF -->
         <a href="#" class="floating-button floating-download-button" onclick="downloadAsPDF()">Download PDF</a>
-        <a href="#" class="floating-button floating-translate-button" onclick="toggleTranslation()">Traduci</a>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script src="assets/script.js"></script>
 </body>
 

@@ -1,26 +1,77 @@
 {
+    "personalInfo": {
+        "name": "John Doe",
+        "email": "johndoe@example.com",
+        "phone": "+1234567890",
+        "address": "123 Main St, City, Country"
+    },
     "education": [{
-            "degree": "Laurea Magistrale",
+            "degree": "Laurea Triennale",
             "field": "Informatica",
-            "year": "2018"
+            "year": "2019",
+            "grade": "110/110 cum laude",
+            "institution": "Università degli Studi"
         },
         {
-            "degree": "Laurea Triennale",
-            "field": "Ingegneria del Software",
-            "year": "2015"
+            "degree": "Diploma di Maturità scientifica",
+            "field": "indirizzo tecnologico",
+            "year": "2010",
+            "grade": "90/100",
+            "institution": "Liceo Scientifico"
         }
     ],
     "workExperience": [{
             "position": "Sviluppatore Software",
             "company": "XYZ Software",
             "startDate": "2018",
-            "endDate": "2022"
+            "endDate": "2022",
+            "projects": [{
+                    "name": "Project A",
+                    "activities": [{
+                            "name": "Analisi dei requisiti",
+                            "technologies": ["UML", "Wireframing"]
+                        },
+                        {
+                            "name": "Sviluppo front-end",
+                            "technologies": ["HTML", "CSS", "JavaScript"]
+                        },
+                        {
+                            "name": "Sviluppo back-end",
+                            "technologies": ["Python", "Django"]
+                        }
+                    ]
+                },
+                {
+                    "name": "Project B",
+                    "activities": [{
+                            "name": "Progettazione architetturale",
+                            "technologies": ["Java", "Spring Framework"]
+                        },
+                        {
+                            "name": "Testing",
+                            "technologies": ["JUnit", "Selenium"]
+                        }
+                    ]
+                }
+            ]
         },
         {
             "position": "Stage",
             "company": "ABC Tech",
             "startDate": "2017",
-            "endDate": "2018"
+            "endDate": "2018",
+            "projects": [{
+                "name": "Project C",
+                "activities": [{
+                        "name": "Sviluppo front-end",
+                        "technologies": ["HTML", "CSS", "JavaScript"]
+                    },
+                    {
+                        "name": "Sviluppo back-end",
+                        "technologies": ["Java", "Spring Boot"]
+                    }
+                ]
+            }]
         }
     ],
     "skills": [
