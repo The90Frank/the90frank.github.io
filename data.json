@@ -1,22 +1,22 @@
 {
     "personalInfo": {
-        "name": "John Doe",
-        "email": "johndoe@example.com",
-        "phone": "+1234567890",
-        "address": "123 Main St, City, Country"
+        "name": "Francesco Vatteroni",
+        "email": "francescov.90@gmail.com",
+        "phone": "3338446075",
+        "address": "Pisa, PI, Italy"
     },
     "education": [{
             "degree": "Laurea Triennale",
             "field": "Informatica",
             "year": "2019",
-            "grade": "110/110 cum laude",
-            "institution": "Università degli Studi"
+            "grade": "88/110",
+            "institution": "Università degli Studi di Pisa"
         },
         {
             "degree": "Diploma di Maturità scientifica",
             "field": "indirizzo tecnologico",
             "year": "2010",
-            "grade": "90/100",
+            "grade": "60/100",
             "institution": "Liceo Scientifico"
         }
     ],
