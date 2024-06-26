@@ -85,7 +85,7 @@ function populatePortfolio(data) {
     data.forEach(item => {
         const listItem = document.createElement('li');
         const link = document.createElement('a');
-        link.href = item.url;
+        link.href = item.html_url;
         link.textContent = item.name;
         listItem.appendChild(link);
         portfolioList.appendChild(listItem);
